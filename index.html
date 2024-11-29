@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denislav Zarev - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="webgl-container"></div>
+    
+    <div class="loading-screen">
+        <div class="terminal">
+            <div class="terminal-text"></div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="glitch-container">
+            <h1 class="glitch" data-text="DENISLAV ZAREV">DENISLAV ZAREV</h1>
+            <p class="subtitle">CYBERSECURITY SPECIALIST</p>
+        </div>
+        
+        <nav class="cyber-nav">
+            <div class="nav-container">
+                <a href="#about" class="cyber-button">ABOUT</a>
+                <a href="#skills" class="cyber-button">SKILLS</a>
+                <a href="#projects" class="cyber-button">PROJECTS</a>
+                <a href="#contact" class="cyber-button">CONTACT</a>
+            </div>
+        </nav>
+
+        <section id="about" class="section">
+            <div class="section-header">
+                <h2>ABOUT::ME</h2>
+                <div class="line"></div>
+            </div>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="terminal-title">profile.exe</span>
+                    <div class="terminal-controls">
+                        <span class="control minimize"></span>
+                        <span class="control maximize"></span>
+                        <span class="control close"></span>
+                    </div>
+                </div>
+                <div class="terminal-content">
+                    <div class="typing-text"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="section-header">
+                <h2>SKILL::SET</h2>
+                <div class="line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Network Security</h3>
+                    <p>Firewall Configuration, IDS/IPS, VPN</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="--progress: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Penetration Testing</h3>
+                    <p>Vulnerability Assessment, Exploit Development</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="--progress: 80%"></div>
+                    </div>
+                </div>
+                <!-- Add more skill cards as needed -->
+            </div>
+        </section>
+
+        <section id="experience" class="section" data-scroll-section>
+            <div class="section-header">
+                <h2>EXPERIENCE::LOG</h2>
+                <div class="line"></div>
+            </div>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Student at Fontys ICT</h3>
+                        <p class="timeline-date">2022 - Present</p>
+                        <p>Infrastructure & Cyber Security</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Internship at VBTI</h3>
+                        <p class="timeline-date">2024 - Present</p>
+                        <p>Cyber Security Intern</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section" data-scroll-section>
+            <div class="section-header">
+                <h2>PROJECT::ARCHIVE</h2>
+                <div class="line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Security Scanner</h3>
+                        <p>Advanced vulnerability detection system</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>ML</span>
+                            <span>Network Security</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more project cards -->
+            </div>
+        </section>
+
+        <section id="contact" class="section" data-scroll-section>
+            <div class="section-header">
+                <h2>CONTACT::INIT</h2>
+                <div class="line"></div>
+            </div>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="terminal-title">contact.exe</span>
+                    <div class="terminal-controls">
+                        <span class="control minimize"></span>
+                        <span class="control maximize"></span>
+                        <span class="control close"></span>
+                    </div>
+                </div>
+                <div class="terminal-content">
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h3>EMAIL::ADDRESS</h3>
+                                <a href="mailto:denislav.e.zarev@hotmail.com" class="contact-link">denislav.e.zarev@hotmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h3>INSTAGRAM::PROFILE</h3>
+                                <a href="https://instagram.com/denislav.zarev" target="_blank" class="contact-link">@denislav.zarev</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="loadingAnimation.js"></script>
+    <script src="main.js"></script>
+    <script src="terminal.js"></script>
+    <script src="scroll.js"></script>
+    <audio id="bgMusic" loop>
+        <source src="audio/cyberpunk-bg.mp3" type="audio/mp3">
+    </audio>
+    <div class="music-control">
+        <button id="toggleMusic" class="cyber-button">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+</body>
+</html> 
