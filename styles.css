@@ -38,13 +38,15 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Glitch effect */
 .cyber-header {
     position: relative;
-    margin: 0;
-    height: 100vh;
+    margin: 2rem 0;
+    min-height: 60vh;
     padding: 3rem;
     background: linear-gradient(
         45deg,
@@ -89,19 +91,18 @@ body {
     background: rgba(10, 10, 10, 0.6);
     border-left: 3px solid var(--neon-orange);
     text-align: center;
-    min-width: 80%;
-    transform: translateY(-10vh);
+    min-width: 60%;
 }
 
 .cyber-name {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
     margin: 0;
 }
 
 .cyber-glitch {
-    font-size: 8rem;
+    font-size: 6rem;
     font-weight: 800;
     color: #fff;
     text-shadow: 
@@ -113,7 +114,7 @@ body {
     position: relative;
     animation: textFlicker 4s infinite alternate;
     letter-spacing: 0.1em;
-    line-height: 1.1;
+    line-height: 1;
     font-family: 'Courier New', monospace;
     text-transform: uppercase;
     -webkit-text-stroke: 2px var(--neon-orange);
@@ -150,7 +151,7 @@ body {
 
 .title-container {
     position: relative;
-    margin-top: 2rem;
+    margin-top: 1rem;
     padding: 0.5rem 0;
     overflow: hidden;
     border-top: 1px solid rgba(255, 107, 53, 0.3);
@@ -164,7 +165,7 @@ body {
 
 .cyber-title {
     font-family: 'Courier New', monospace;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     color: var(--neon-orange);
     margin: 0;
     padding: 0.5rem 0;
@@ -329,6 +330,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 107, 53, 0.3);
 }
 
 .cyber-button {
@@ -415,10 +417,10 @@ body {
 }
 
 .section {
-    margin: 6rem 0;
+    margin: 4rem 0;
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUp 0.5s forwards;
+    animation: fadeInUp 0.8s forwards;
     animation-delay: calc(var(--delay, 0) * 0.2s);
     background: rgba(10, 10, 10, 0.5);
     border: 1px solid rgba(167, 182, 194, 0.3);
@@ -427,13 +429,18 @@ body {
     backdrop-filter: blur(3px);
 }
 
+.section:first-of-type {
+    margin-top: 0;
+}
+
 .terminal-window {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 107, 53, 0.3);
-    box-shadow: 0 0 20px rgba(255, 107, 53, 0.1);
-    border-radius: 5px;
-    margin: 20px 0;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--neon-orange);
+    border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.1);
+    margin: 2rem 0;
+    backdrop-filter: blur(5px);
 }
 
 .terminal-header {
@@ -511,21 +518,6 @@ body {
     font-size: 1.2rem;
 }
 
-.content {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.section {
-    background: rgba(10, 10, 10, 0.5);
-    border: 1px solid rgba(167, 182, 194, 0.3);
-    border-radius: 5px;
-    padding: 1.5rem;
-    margin: 6rem 0;
-    backdrop-filter: blur(3px);
-}
-
 .section-header {
     display: flex;
     align-items: center;
@@ -547,18 +539,9 @@ body {
     opacity: 0.3;
 }
 
-.terminal-window {
-    border: 1px solid rgba(255, 107, 53, 0.3);
-    box-shadow: 0 0 20px rgba(255, 107, 53, 0.1);
-}
-
 .terminal-header {
     background: rgba(255, 107, 53, 0.1);
     border-bottom: 1px solid rgba(255, 107, 53, 0.3);
-}
-
-.terminal-title {
-    color: var(--neon-orange);
 }
 
 .terminal-content {
@@ -574,17 +557,18 @@ body {
 }
 
 .skill-card {
-    background: rgba(167, 182, 194, 0.05);
-    border: 1px solid rgba(167, 182, 194, 0.2);
-    border-radius: 5px;
-    padding: 1.5rem;
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid var(--neon-orange);
+    border-radius: 10px;
+    padding: 2rem;
     transition: all 0.3s ease;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.1);
 }
 
 .skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
 }
 
 .skill-card h3 {
@@ -1041,8 +1025,10 @@ body {
 /* Contact section styles */
 .contact-grid {
     display: grid;
-    gap: 2rem;
+    gap: 1.5rem;
     padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .contact-item {
@@ -1235,7 +1221,7 @@ body {
     }
 
     .cyber-header {
-        height: 80vh;
+        min-height: 40vh;
         padding: 1.5rem;
     }
 
@@ -1254,24 +1240,69 @@ body {
         background: rgba(10, 10, 10, 0.95);
         transition: right 0.3s ease;
         backdrop-filter: blur(10px);
+        padding-top: 60px;
     }
 
-    body.menu-open {
-        overflow: hidden;
+    .cyber-nav.active {
+        right: 0;
     }
 
-    .nav-container {
-        flex-direction: column;
-        padding: 80px 20px;
+    .mobile-menu-toggle {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1001;
+    }
+
+    .hamburger-icon {
+        position: relative;
+        width: 20px;
+        height: 2px;
+        background: var(--neon-orange);
+        transition: all 0.3s ease;
+    }
+
+    .hamburger-icon::before,
+    .hamburger-icon::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background: var(--neon-orange);
+        transition: all 0.3s ease;
+    }
+
+    .hamburger-icon::before {
+        top: -6px;
+    }
+
+    .hamburger-icon::after {
+        bottom: -6px;
+    }
+
+    .menu-open .hamburger-icon {
+        background: transparent;
+    }
+
+    .menu-open .hamburger-icon::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .menu-open .hamburger-icon::after {
+        transform: rotate(-45deg);
+        bottom: 0;
     }
 
     .cyber-glitch {
-        font-size: 4rem;
+        font-size: 3.5rem;
         letter-spacing: 0.05em;
     }
 
     .cyber-title {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
         letter-spacing: 0.1em;
     }
 
@@ -1289,11 +1320,11 @@ body {
     }
 
     .cyber-glitch {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
 
     .cyber-title {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
     }
 
     .subtitle {
@@ -1310,4 +1341,10 @@ body {
     .blog-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Fix scroll behavior */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 } 
