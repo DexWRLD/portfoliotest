@@ -4,6 +4,12 @@
     --dark-bg: #0a0a0a;
     --darker-orange: #cc5529;
     --lighter-gray: #c8d3dc;
+    --z-background: 1;
+    --z-content: 2;
+    --z-header: 3;
+    --z-nav: 100;
+    --z-mobile-menu: 1001;
+    --z-loading: 2000;
 }
 
 * {
@@ -27,13 +33,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: var(--z-background);
     pointer-events: none;
 }
 
 .content {
     position: relative;
-    z-index: 2;
+    z-index: var(--z-content);
     padding: 2rem;
     max-width: 1400px;
     margin: 0 auto;
@@ -58,12 +64,13 @@ body {
     box-shadow: 
         0 0 20px rgba(255, 107, 53, 0.2),
         inset 0 0 20px rgba(255, 107, 53, 0.1);
-    z-index: 2;
+    z-index: var(--z-header);
     overflow: hidden;
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
 }
 
 .cyber-header::before {
@@ -86,12 +93,14 @@ body {
 
 .name-container {
     position: relative;
-    z-index: 2;
+    z-index: var(--z-content);
     padding: 1rem;
     background: rgba(10, 10, 10, 0.6);
     border-left: 3px solid var(--neon-orange);
     text-align: center;
     min-width: 60%;
+    max-width: 90%;
+    word-wrap: break-word;
 }
 
 .cyber-name {
@@ -118,6 +127,9 @@ body {
     font-family: 'Courier New', monospace;
     text-transform: uppercase;
     -webkit-text-stroke: 2px var(--neon-orange);
+    transition: font-size 0.3s ease, letter-spacing 0.3s ease;
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .cyber-glitch::before,
@@ -128,6 +140,8 @@ body {
     height: 100%;
     left: 0;
     opacity: 0.8;
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .cyber-glitch::before {
@@ -174,6 +188,10 @@ body {
     display: inline-block;
     text-transform: uppercase;
     font-weight: bold;
+    transition: font-size 0.3s ease, letter-spacing 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .cyber-title::after {
@@ -319,7 +337,7 @@ body {
     position: fixed;
     top: 30px;
     right: 30px;
-    z-index: 100;
+    z-index: var(--z-nav);
     background: transparent;
 }
 
@@ -346,11 +364,16 @@ body {
     position: relative;
 }
 
-.cyber-button:hover {
-    background: var(--neon-orange);
-    color: var(--dark-bg);
-    box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
-    transform: translateY(-2px);
+.cyber-button:focus {
+    outline: 2px solid var(--neon-orange);
+    outline-offset: 2px;
+}
+
+@media (hover: hover) {
+    .cyber-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+    }
 }
 
 @keyframes glitch {
@@ -391,11 +414,18 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(10, 10, 10, 0.95);
-    z-index: 1000;
+    z-index: var(--z-loading);
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 1s ease;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .terminal {
@@ -601,7 +631,7 @@ body {
 .cyber-nav {
     position: sticky;
     top: 20px;
-    z-index: 100;
+    z-index: var(--z-nav);
     background: rgba(10, 10, 10, 0.8);
     padding: 1.5rem;
     border: 1px solid var(--neon-orange);
@@ -857,7 +887,7 @@ body {
     position: fixed;
     top: 30px;
     right: 30px;
-    z-index: 100;
+    z-index: var(--z-nav);
     background: transparent;
 }
 
@@ -1207,7 +1237,7 @@ body {
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 1000;
+    z-index: var(--z-mobile-menu);
     background: transparent;
     border: 1px solid var(--neon-orange);
     padding: 10px;
@@ -1223,12 +1253,6 @@ body {
     .cyber-header {
         min-height: 40vh;
         padding: 1.5rem;
-    }
-
-    .mobile-menu-toggle {
-        display: block;
-        background: rgba(10, 10, 10, 0.8);
-        border-radius: 5px;
     }
 
     .cyber-nav {
@@ -1253,7 +1277,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 1001;
+        z-index: var(--z-mobile-menu);
     }
 
     .hamburger-icon {
@@ -1347,4 +1371,13 @@ body {
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 } 
