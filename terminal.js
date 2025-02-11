@@ -50,27 +50,21 @@ function initializeAudio() {
     
     // Start with lower volume and load the audio
     bgMusic.volume = 0.3;
-    bgMusic.load(); // Ensure audio is loaded
     volumeIcon.className = 'fas fa-volume-up';
     
+    // Set initial state
+    let hasInteracted = false;
+    
     // Force play with user interaction simulation
-    document.body.addEventListener('click', function playAudio() {
+    document.addEventListener('click', function playAudio() {
+        if (hasInteracted) return;
+        hasInteracted = true;
         bgMusic.play()
             .then(() => {
                 console.log("Audio started successfully");
-                document.body.removeEventListener('click', playAudio);
             })
             .catch(error => console.log("Audio play failed:", error));
-    }, { once: true });
-    
-    // Immediate play attempt
-    setTimeout(() => {
-        bgMusic.play()
-            .then(() => console.log("Audio autoplay successful"))
-            .catch(error => {
-                console.log("Waiting for user interaction to play audio");
-            });
-    }, 2000);
+    });
     
     // Toggle music button
     toggleButton.addEventListener('click', () => {

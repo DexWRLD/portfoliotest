@@ -1230,8 +1230,19 @@ body {
 
 /* Mobile responsive adjustments */
 @media (max-width: 768px) {
+    .content {
+        padding: 1rem;
+    }
+
+    .cyber-header {
+        height: 80vh;
+        padding: 1.5rem;
+    }
+
     .mobile-menu-toggle {
         display: block;
+        background: rgba(10, 10, 10, 0.8);
+        border-radius: 5px;
     }
 
     .cyber-nav {
@@ -1242,15 +1253,39 @@ body {
         width: 80%;
         background: rgba(10, 10, 10, 0.95);
         transition: right 0.3s ease;
+        backdrop-filter: blur(10px);
     }
 
-    .cyber-nav.active {
-        right: 0;
+    body.menu-open {
+        overflow: hidden;
     }
 
     .nav-container {
         flex-direction: column;
         padding: 80px 20px;
+    }
+
+    .cyber-glitch {
+        font-size: 4rem;
+        letter-spacing: 0.05em;
+    }
+
+    .cyber-title {
+        font-size: 1.6rem;
+        letter-spacing: 0.1em;
+    }
+
+    .terminal-window {
+        margin: 1rem 0;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-icon {
+        margin: 0 auto;
     }
 
     .cyber-glitch {
