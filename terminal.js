@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     <ul class="terminal-list">
         <li>Pursuing CompTIA certifications</li>
         <li>Actively practicing on Hack The Box and Over The Wire</li>
-        <li>Exploring Cloud Security and DevOps integration</li>
+        <li>Focusing on my Internship</li>
     </ul>
 </div>
 
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     <div class="terminal-header-text">[TECHNICAL_ARSENAL]</div>
     <ul class="terminal-list">
         <li>Languages: Python, HTML, CSS, C# (Basic)</li>
-        <li>Environment: Docker, DevOps Tools</li>
+        <li>Environment: Docker, Harbor, GitLab, DevOps Tools</li>
         <li>Cloud: Infrastructure Security</li>
         <li>Security Tools: Fundamental Knowledge</li>
     </ul>

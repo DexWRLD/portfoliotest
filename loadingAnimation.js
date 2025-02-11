@@ -7,8 +7,10 @@ class LoadingAnimation {
         this.clock = new THREE.Clock();
         this.particles = [];
         this.rings = [];
+        this.progress = 0;
         
         this.init();
+        this.addProgressBar();
     }
 
     init() {
@@ -101,6 +103,9 @@ class LoadingAnimation {
 
         // Start animation
         this.animate();
+
+        // Start loading simulation
+        this.simulateLoading();
     }
 
     animate = () => {
@@ -149,5 +154,68 @@ class LoadingAnimation {
         this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    addProgressBar() {
+        const progressContainer = document.createElement('div');
+        progressContainer.className = 'loading-progress';
+        progressContainer.innerHTML = `
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill">
+                        <div class="progress-glitch"></div>
+                    </div>
+                </div>
+                <div class="progress-text">0%</div>
+                <div class="progress-status"></div>
+            </div>
+        `;
+        this.container.appendChild(progressContainer);
+    }
+
+    updateProgress(value) {
+        this.progress = value;
+        const progressFill = this.container.querySelector('.progress-fill');
+        const progressText = this.container.querySelector('.progress-text');
+        const progressStatus = this.container.querySelector('.progress-status');
+        
+        progressFill.style.width = `${value}%`;
+        progressText.textContent = `${Math.round(value)}%`;
+        
+        // Update loading status messages
+        if (value < 25) {
+            progressStatus.textContent = 'INITIALIZING SYSTEMS...';
+        } else if (value < 50) {
+            progressStatus.textContent = 'LOADING SECURITY PROTOCOLS...';
+        } else if (value < 75) {
+            progressStatus.textContent = 'ESTABLISHING SECURE CONNECTION...';
+        } else if (value < 100) {
+            progressStatus.textContent = 'FINALIZING SETUP...';
+        } else {
+            progressStatus.textContent = 'ACCESS GRANTED';
+            progressStatus.style.color = 'var(--neon-orange)';
+            
+            // Add glitch effect when complete
+            progressFill.style.animation = 'progressGlitch 0.3s linear 3';
+            setTimeout(() => {
+                this.container.style.opacity = '0';
+                setTimeout(() => {
+                    this.container.style.display = 'none';
+                }, 1000);
+            }, 500);
+        }
+    }
+
+    // Add this method to simulate loading
+    simulateLoading() {
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += Math.random() * 3;
+            if (progress > 100) {
+                progress = 100;
+                clearInterval(interval);
+            }
+            this.updateProgress(progress);
+        }, 100);
     }
 } 
